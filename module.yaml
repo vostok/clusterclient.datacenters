@@ -1,0 +1,20 @@
+notests *default:
+  build:
+    target: Vostok.ClusterClient.Datacenters.sln
+    configuration: NoTests
+    tool:
+      name: dotnet
+
+  install:
+    - Vostok.ClusterClient.Datacenters/bin/Release/netstandard2.0/Vostok.ClusterClient.Datacenters.dll
+
+  deps:
+    - vostok.clusterclient.core
+    - vostok.logging.abstractions
+    - vostok.datacenters
+    - vostok.devtools
+
+full-build > notests:
+  build:
+    target: Vostok.ClusterClient.Datacenters.sln
+    configuration: Release
