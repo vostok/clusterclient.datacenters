@@ -10,7 +10,7 @@ using Vostok.Datacenters;
 namespace Vostok.ClusterClient.Datacenters
 {
     /// <summary>
-    /// <para>A weight modifier that applies zero weight for non-active datacenters.</para>
+    /// <para>A weight modifier that applies zero weights for non-active datacenters.</para>
     /// </summary>
     [PublicAPI]
     public class AvoidInactiveDatacentersModifier : IReplicaWeightModifier
