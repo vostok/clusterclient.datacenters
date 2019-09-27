@@ -18,7 +18,7 @@ namespace Vostok.ClusterClient.Datacenters
         }
 
         /// <summary>
-        /// Adds a <see cref="BoostLocalDatacentersModifier"/> that will increases weight of replicas in local datacenter.
+        /// Adds a <see cref="BoostLocalDatacentersModifier"/> that will increase weight of replicas in local datacenter.
         /// </summary>
         public static void SetupBoostLocalDatacentersWeightModifier(
             [NotNull] this IWeighedReplicaOrderingBuilder self,
