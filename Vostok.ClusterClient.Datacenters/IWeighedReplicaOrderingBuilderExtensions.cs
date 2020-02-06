@@ -26,7 +26,7 @@ namespace Vostok.ClusterClient.Datacenters
             double boostMultiplier = 3.0,
             double minimumWeightForBoosting = 0.75)
         {
-            self.AddModifier(new BoostLocalDatacentersModifier(datacenters));
+            self.AddModifier(new BoostLocalDatacentersModifier(datacenters, boostMultiplier, minimumWeightForBoosting));
         }
     }
 }
