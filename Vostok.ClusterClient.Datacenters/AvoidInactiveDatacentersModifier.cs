@@ -28,7 +28,7 @@ namespace Vostok.ClusterClient.Datacenters
             if (active.Count == 0)
                 return;
 
-            var replicaDatacenter = datacenters.GetDatacenter(replica.Host);
+            var replicaDatacenter = datacenters.GetDatacenterWeak(replica.Host);
             if (replicaDatacenter == null)
                 return;
 
