@@ -35,7 +35,7 @@ namespace Vostok.ClusterClient.Datacenters.Tests
         {
             datacenters.GetActiveDatacenters().Returns(new HashSet<string> {"dc"});
             string result = null;
-            datacenters.GetDatacenter(Arg.Any<string>()).Returns(result);
+            datacenters.GetDatacenterWeak(Arg.Any<string>()).Returns(result);
             modifier.Modify(new Uri("http://url.com/"), null, null, null, null, ref weight);
             weight.Should().Be(1.1);
         }
@@ -44,7 +44,7 @@ namespace Vostok.ClusterClient.Datacenters.Tests
         public void Modify_should_not_modify_weight_when_replica_dc_in_whitelist()
         {
             datacenters.GetActiveDatacenters().Returns(new HashSet<string> {"dc"});
-            datacenters.GetDatacenter(Arg.Any<string>()).Returns("dc");
+            datacenters.GetDatacenterWeak(Arg.Any<string>()).Returns("dc");
             modifier.Modify(new Uri("http://url.com/"), null, null, null, null, ref weight);
             weight.Should().Be(1.1);
         }
@@ -53,7 +53,7 @@ namespace Vostok.ClusterClient.Datacenters.Tests
         public void Modify_should_set_zero_weight_when_replica_dc_not_in_whitelist()
         {
             datacenters.GetActiveDatacenters().Returns(new HashSet<string> {"dc1"});
-            datacenters.GetDatacenter(Arg.Any<string>()).Returns("dc");
+            datacenters.GetDatacenterWeak(Arg.Any<string>()).Returns("dc");
 
             modifier.Modify(new Uri("http://url.com/"), null, null, null, null, ref weight);
             weight.Should().Be(0);
