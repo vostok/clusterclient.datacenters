@@ -13,7 +13,7 @@ notests *default:
   deps:
     - vostok.clusterclient.core
     - vostok.logging.abstractions
-    - vostok.datacenters@nonBlockingDns
+    - vostok.datacenters
     - vostok.devtools
 
 full-build > notests:
