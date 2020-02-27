@@ -42,7 +42,7 @@ namespace Vostok.ClusterClient.Datacenters
                 return;
 
             var localDatacenter = datacenters.GetLocalDatacenter();
-            var replicaDatacenter = datacenters.GetDatacenter(replica.Host);
+            var replicaDatacenter = datacenters.GetDatacenterWeak(replica.Host);
 
             if (string.Equals(localDatacenter, replicaDatacenter, StringComparison.OrdinalIgnoreCase))
                 weight *= boostMultiplierProvider();

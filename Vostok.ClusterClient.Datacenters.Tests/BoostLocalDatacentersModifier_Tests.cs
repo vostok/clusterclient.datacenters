@@ -36,7 +36,7 @@ namespace Vostok.ClusterClient.Datacenters.Tests
         public void Modify_should_not_modify_weight_when_is_not_local_dc()
         {
             datacenters.GetLocalDatacenter().Returns("dc");
-            datacenters.GetDatacenter(Arg.Any<string>()).Returns("dc1");
+            datacenters.GetDatacenterWeak(Arg.Any<string>()).Returns("dc1");
             modifier.Modify(new Uri("http://url.com/"), null, null, null, null, ref weight);
             weight.Should().Be(1.0);
         }
@@ -45,7 +45,7 @@ namespace Vostok.ClusterClient.Datacenters.Tests
         public void Modify_should_modify_weight_when_is_local_dc()
         {
             datacenters.GetLocalDatacenter().Returns("dc");
-            datacenters.GetDatacenter(Arg.Any<string>()).Returns("dc");
+            datacenters.GetDatacenterWeak(Arg.Any<string>()).Returns("dc");
             modifier.Modify(new Uri("http://url.com/"), null, null, null, null, ref weight);
             weight.Should().Be(1.0 * boostMultiplier);
         }
