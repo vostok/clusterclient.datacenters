@@ -7,10 +7,11 @@ notests *default:
 
   install:
     - Vostok.ClusterClient.Datacenters/bin/Release/netstandard2.0/Vostok.ClusterClient.Datacenters.dll
+    - module vostok.clusterclient.core
+    - module vostok.datacenters
 
   deps:
     - vostok.clusterclient.core
-    - vostok.logging.abstractions
     - vostok.datacenters
     - vostok.devtools
 
