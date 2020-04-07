@@ -5,7 +5,9 @@ using NSubstitute;
 using NUnit.Framework;
 using Vostok.Datacenters;
 
-namespace Vostok.ClusterClient.Datacenters.Tests
+// ReSharper disable AssignNullToNotNullAttribute
+
+namespace Vostok.Clusterclient.Datacenters.Tests
 {
     [TestFixture]
     public class AvoidInactiveDatacentersModifier_Tests
@@ -34,8 +36,7 @@ namespace Vostok.ClusterClient.Datacenters.Tests
         public void Modify_should_not_modify_weight_when_datacenter_not_found()
         {
             datacenters.GetActiveDatacenters().Returns(new HashSet<string> {"dc"});
-            string result = null;
-            datacenters.GetDatacenterWeak(Arg.Any<string>()).Returns(result);
+            datacenters.GetDatacenterWeak(Arg.Any<string>()).Returns(null as string);
             modifier.Modify(new Uri("http://url.com/"), null, null, null, null, ref weight);
             weight.Should().Be(1.1);
         }

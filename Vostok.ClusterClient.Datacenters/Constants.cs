@@ -1,4 +1,4 @@
-﻿namespace Vostok.ClusterClient.Datacenters
+﻿namespace Vostok.Clusterclient.Datacenters
 {
     internal static class Constants
     {
