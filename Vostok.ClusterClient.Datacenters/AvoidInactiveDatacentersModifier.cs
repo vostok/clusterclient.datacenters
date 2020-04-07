@@ -7,7 +7,7 @@ using Vostok.Clusterclient.Core.Ordering.Storage;
 using Vostok.Clusterclient.Core.Ordering.Weighed;
 using Vostok.Datacenters;
 
-namespace Vostok.ClusterClient.Datacenters
+namespace Vostok.Clusterclient.Datacenters
 {
     /// <summary>
     /// <para>A weight modifier that applies zero weights for non-active datacenters.</para>
@@ -39,6 +39,19 @@ namespace Vostok.ClusterClient.Datacenters
         }
 
         public void Learn(ReplicaResult result, IReplicaStorageProvider storageProvider)
+        {
+        }
+    }
+}
+
+namespace Vostok.ClusterClient.Datacenters
+{
+    [PublicAPI]
+    [Obsolete("To be removed soon. Please use the version of this class from Vostok.Clusterclient.Datacenters namespace (notice the lowecase 'c').")]
+    public class AvoidInactiveDatacentersModifier : Clusterclient.Datacenters.AvoidInactiveDatacentersModifier
+    {
+        public AvoidInactiveDatacentersModifier([NotNull] IDatacenters datacenters)
+            : base(datacenters)
         {
         }
     }

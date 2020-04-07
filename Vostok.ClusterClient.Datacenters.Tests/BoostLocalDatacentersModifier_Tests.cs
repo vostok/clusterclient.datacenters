@@ -4,7 +4,9 @@ using NSubstitute;
 using NUnit.Framework;
 using Vostok.Datacenters;
 
-namespace Vostok.ClusterClient.Datacenters.Tests
+// ReSharper disable AssignNullToNotNullAttribute
+
+namespace Vostok.Clusterclient.Datacenters.Tests
 {
     [TestFixture]
     public class BoostLocalDatacentersModifier_Tests

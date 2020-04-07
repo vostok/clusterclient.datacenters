@@ -4,9 +4,10 @@ using JetBrains.Annotations;
 using Vostok.Clusterclient.Core.Model;
 using Vostok.Clusterclient.Core.Ordering.Storage;
 using Vostok.Clusterclient.Core.Ordering.Weighed;
+using Vostok.Clusterclient.Datacenters;
 using Vostok.Datacenters;
 
-namespace Vostok.ClusterClient.Datacenters
+namespace Vostok.Clusterclient.Datacenters
 {
     /// <summary>
     /// <para>A weight modifier that increases weight of replicas in local datacenter.</para>
@@ -49,6 +50,24 @@ namespace Vostok.ClusterClient.Datacenters
         }
 
         public void Learn(ReplicaResult result, IReplicaStorageProvider storageProvider)
+        {
+        }
+    }
+}
+
+namespace Vostok.ClusterClient.Datacenters
+{
+    [PublicAPI]
+    [Obsolete("To be removed soon. Please use the version of this class from Vostok.Clusterclient.Datacenters namespace (notice the lowecase 'c').")]
+    public class BoostLocalDatacentersModifier : Clusterclient.Datacenters.BoostLocalDatacentersModifier
+    {
+        public BoostLocalDatacentersModifier([NotNull] IDatacenters datacenters, double boostMultiplier = Constants.DefaultBoostMultiplier, double minimumWeightForBoosting = Constants.DefaultMinimumWeightForBoosting)
+            : base(datacenters, boostMultiplier, minimumWeightForBoosting)
+        {
+        }
+
+        public BoostLocalDatacentersModifier([NotNull] IDatacenters datacenters, [NotNull] Func<double> boostMultiplierProvider, [NotNull] Func<double> minimumWeightForBoostingProvider)
+            : base(datacenters, boostMultiplierProvider, minimumWeightForBoostingProvider)
         {
         }
     }
