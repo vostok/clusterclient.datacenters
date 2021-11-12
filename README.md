@@ -1,6 +1,6 @@
 # Vostok.ClusterClient.Datacenters
 
-[![Build status](https://ci.appveyor.com/api/projects/status/github/vostok/clusterclient.datacenters?svg=true&branch=master)](https://ci.appveyor.com/project/vostok/clusterclient.datacenters/branch/master)
+[![Build & Test & Publish](https://github.com/vostok/clusterclient.datacenters/actions/workflows/ci.yml/badge.svg)](https://github.com/vostok/clusterclient.datacenters/actions/workflows/ci.yml)
 [![NuGet](https://img.shields.io/nuget/v/Vostok.ClusterClient.Datacenters.svg)](https://www.nuget.org/packages/Vostok.ClusterClient.Datacenters)
 
 An implementation of replica weight modifiers based on datacenters.
