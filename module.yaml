@@ -18,13 +18,13 @@ notests *default:
           - name: vostok.datacenters
       - target-framework: "net6.0"
         libraries:
-          - Vostok.ClusterClient.Datacenters/bin/Release/netstandard2.0/Vostok.ClusterClient.Datacenters.dll
+          - Vostok.ClusterClient.Datacenters/bin/Release/net6.0/Vostok.ClusterClient.Datacenters.dll
         modules:
           - name: vostok.clusterclient.core
           - name: vostok.datacenters
       - target-framework: "net8.0"
         libraries:
-          - Vostok.ClusterClient.Datacenters/bin/Release/netstandard2.0/Vostok.ClusterClient.Datacenters.dll
+          - Vostok.ClusterClient.Datacenters/bin/Release/net8.0/Vostok.ClusterClient.Datacenters.dll
         modules:
           - name: vostok.clusterclient.core
           - name: vostok.datacenters
@@ -53,13 +53,13 @@ full-build > notests:
           - name: vostok.datacenters
       - target-framework: "net6.0"
         libraries:
-          - Vostok.ClusterClient.Datacenters/bin/Release/netstandard2.0/Vostok.ClusterClient.Datacenters.dll
+          - Vostok.ClusterClient.Datacenters/bin/Release/net6.0/Vostok.ClusterClient.Datacenters.dll
         modules:
           - name: vostok.clusterclient.core
           - name: vostok.datacenters
       - target-framework: "net8.0"
         libraries:
-          - Vostok.ClusterClient.Datacenters/bin/Release/netstandard2.0/Vostok.ClusterClient.Datacenters.dll
+          - Vostok.ClusterClient.Datacenters/bin/Release/net8.0/Vostok.ClusterClient.Datacenters.dll
         modules:
           - name: vostok.clusterclient.core
           - name: vostok.datacenters
