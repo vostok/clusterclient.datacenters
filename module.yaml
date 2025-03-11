@@ -9,6 +9,26 @@ notests *default:
     - Vostok.ClusterClient.Datacenters/bin/Release/netstandard2.0/Vostok.ClusterClient.Datacenters.dll
     - module vostok.clusterclient.core
     - module vostok.datacenters
+    - groups:
+      - target-framework: "netstandard2.0"
+        libraries:
+          - Vostok.ClusterClient.Datacenters/bin/Release/netstandard2.0/Vostok.ClusterClient.Datacenters.dll
+        modules:
+          - name: vostok.clusterclient.core
+          - name: vostok.datacenters
+      - target-framework: "net6.0"
+        libraries:
+          - Vostok.ClusterClient.Datacenters/bin/Release/net6.0/Vostok.ClusterClient.Datacenters.dll
+        modules:
+          - name: vostok.clusterclient.core
+          - name: vostok.datacenters
+      - target-framework: "net8.0"
+        libraries:
+          - Vostok.ClusterClient.Datacenters/bin/Release/net8.0/Vostok.ClusterClient.Datacenters.dll
+        modules:
+          - name: vostok.clusterclient.core
+          - name: vostok.datacenters
+
 
   deps:
     - vostok.clusterclient.core
@@ -19,6 +39,30 @@ full-build > notests:
   deps:
     - -vostok.devtools
     - vostok.devtools@with-net6.0
+
+  install:
+    - Vostok.ClusterClient.Datacenters/bin/Release/netstandard2.0/Vostok.ClusterClient.Datacenters.dll
+    - module vostok.clusterclient.core
+    - module vostok.datacenters
+    - groups:
+      - target-framework: "netstandard2.0"
+        libraries:
+          - Vostok.ClusterClient.Datacenters/bin/Release/netstandard2.0/Vostok.ClusterClient.Datacenters.dll
+        modules:
+          - name: vostok.clusterclient.core
+          - name: vostok.datacenters
+      - target-framework: "net6.0"
+        libraries:
+          - Vostok.ClusterClient.Datacenters/bin/Release/net6.0/Vostok.ClusterClient.Datacenters.dll
+        modules:
+          - name: vostok.clusterclient.core
+          - name: vostok.datacenters
+      - target-framework: "net8.0"
+        libraries:
+          - Vostok.ClusterClient.Datacenters/bin/Release/net8.0/Vostok.ClusterClient.Datacenters.dll
+        modules:
+          - name: vostok.clusterclient.core
+          - name: vostok.datacenters
 
   build:
     target: Vostok.ClusterClient.Datacenters.sln
