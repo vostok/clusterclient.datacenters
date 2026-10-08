@@ -51,7 +51,7 @@ namespace Vostok.ClusterClient.Datacenters
         // here it has the same parameter count as the provider overload. The existing methods are grandfathered
         // in PublicAPI.Shipped.txt, while this new API is unshipped, so the analyzer flags it.
 #pragma warning disable RS0027
-        public static void SetupBoostLocalAndAvoidInactiveDatacentersWeightModifier(
+        public static void SetupAvoidInactiveAndBoostLocalDatacentersWeightModifier(
             [NotNull] this IWeighedReplicaOrderingBuilder self,
             [NotNull] IDatacenters datacenters,
             double boostMultiplier = Constants.DefaultBoostMultiplier,
@@ -65,7 +65,7 @@ namespace Vostok.ClusterClient.Datacenters
         /// <para>Adds a <see cref="AvoidInactiveAndBoostLocalDatacentersModifier"/> that combines <see cref="AvoidInactiveDatacentersModifier"/> and <see cref="BoostLocalDatacentersModifier"/>.</para>
         /// <para>It applies zero weights for non-active datacenters and increases weight of replicas in local datacenter, querying <see cref="IDatacenters.GetDatacenterWeak"/> at most once per replica.</para>
         /// </summary>
-        public static void SetupBoostLocalAndAvoidInactiveDatacentersWeightModifier(
+        public static void SetupAvoidInactiveAndBoostLocalDatacentersWeightModifier(
             [NotNull] this IWeighedReplicaOrderingBuilder self,
             [NotNull] IDatacenters datacenters,
             [NotNull] Func<double> boostMultiplierProvider,
