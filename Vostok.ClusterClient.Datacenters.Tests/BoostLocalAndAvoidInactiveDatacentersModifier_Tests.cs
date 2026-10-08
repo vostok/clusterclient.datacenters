@@ -12,7 +12,7 @@ namespace Vostok.ClusterClient.Datacenters.Tests
     {
         private readonly double boostMultiplier = 2.0;
         private readonly double minimumWeightForBoosting = 1.0;
-        private BoostLocalAndAvoidInactiveDatacentersModifier modifier;
+        private AvoidInactiveAndBoostLocalDatacentersModifier modifier;
         private IDatacenters datacenters;
 
         private double weight;
@@ -22,7 +22,7 @@ namespace Vostok.ClusterClient.Datacenters.Tests
         {
             weight = 1.0;
             datacenters = Substitute.For<IDatacenters>();
-            modifier = new BoostLocalAndAvoidInactiveDatacentersModifier(datacenters, boostMultiplier, minimumWeightForBoosting);
+            modifier = new AvoidInactiveAndBoostLocalDatacentersModifier(datacenters, boostMultiplier, minimumWeightForBoosting);
         }
 
         [Test]

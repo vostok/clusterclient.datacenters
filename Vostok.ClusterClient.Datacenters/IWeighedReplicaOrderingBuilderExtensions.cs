@@ -43,7 +43,7 @@ namespace Vostok.ClusterClient.Datacenters
         }
 
         /// <summary>
-        /// <para>Adds a <see cref="BoostLocalAndAvoidInactiveDatacentersModifier"/> that combines <see cref="AvoidInactiveDatacentersModifier"/> and <see cref="BoostLocalDatacentersModifier"/>.</para>
+        /// <para>Adds a <see cref="AvoidInactiveAndBoostLocalDatacentersModifier"/> that combines <see cref="AvoidInactiveDatacentersModifier"/> and <see cref="BoostLocalDatacentersModifier"/>.</para>
         /// <para>It applies zero weights for non-active datacenters and increases weight of replicas in local datacenter, querying <see cref="IDatacenters.GetDatacenterWeak"/> at most once per replica.</para>
         /// </summary>
         // (perf): the optional-parameter overload intentionally mirrors SetupBoostLocalDatacentersWeightModifier.
@@ -57,12 +57,12 @@ namespace Vostok.ClusterClient.Datacenters
             double boostMultiplier = Constants.DefaultBoostMultiplier,
             double minimumWeightForBoosting = Constants.DefaultMinimumWeightForBoosting)
         {
-            self.AddModifier(new BoostLocalAndAvoidInactiveDatacentersModifier(datacenters, boostMultiplier, minimumWeightForBoosting));
+            self.AddModifier(new AvoidInactiveAndBoostLocalDatacentersModifier(datacenters, boostMultiplier, minimumWeightForBoosting));
         }
 #pragma warning restore RS0027
 
         /// <summary>
-        /// <para>Adds a <see cref="BoostLocalAndAvoidInactiveDatacentersModifier"/> that combines <see cref="AvoidInactiveDatacentersModifier"/> and <see cref="BoostLocalDatacentersModifier"/>.</para>
+        /// <para>Adds a <see cref="AvoidInactiveAndBoostLocalDatacentersModifier"/> that combines <see cref="AvoidInactiveDatacentersModifier"/> and <see cref="BoostLocalDatacentersModifier"/>.</para>
         /// <para>It applies zero weights for non-active datacenters and increases weight of replicas in local datacenter, querying <see cref="IDatacenters.GetDatacenterWeak"/> at most once per replica.</para>
         /// </summary>
         public static void SetupBoostLocalAndAvoidInactiveDatacentersWeightModifier(
@@ -71,7 +71,7 @@ namespace Vostok.ClusterClient.Datacenters
             [NotNull] Func<double> boostMultiplierProvider,
             [NotNull] Func<double> minimumWeightForBoostingProvider)
         {
-            self.AddModifier(new BoostLocalAndAvoidInactiveDatacentersModifier(datacenters, boostMultiplierProvider, minimumWeightForBoostingProvider));
+            self.AddModifier(new AvoidInactiveAndBoostLocalDatacentersModifier(datacenters, boostMultiplierProvider, minimumWeightForBoostingProvider));
         }
     }
 }
