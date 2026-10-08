@@ -1,6 +1,6 @@
 ## 0.1.6 (08-10-2026):
 
-Added `BoostLocalAndAvoidInactiveDatacentersModifier` that combines `AvoidInactiveDatacentersModifier` and `BoostLocalDatacentersModifier`, querying `IDatacenters.GetDatacenterWeak` at most once per replica.
+Added `BoostLocalAndAvoidInactiveDatacentersModifier` and `SetupBoostLocalAndAvoidInactiveDatacentersWeightModifier` that combine `AvoidInactiveDatacentersModifier` and `BoostLocalDatacentersModifier`, querying `IDatacenters.GetDatacenterWeak` at most once per replica. Use them instead of the `SetupAvoidInactiveDatacentersWeightModifier` + `SetupBoostLocalDatacentersWeightModifier` pair to halve the number of datacenter lookups per replica.
 
 ## 0.1.5 (16-12-2024): 
 

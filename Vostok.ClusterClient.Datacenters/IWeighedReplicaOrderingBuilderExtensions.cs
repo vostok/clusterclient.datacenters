@@ -47,7 +47,9 @@ namespace Vostok.ClusterClient.Datacenters
         /// <para>It applies zero weights for non-active datacenters and increases weight of replicas in local datacenter, querying <see cref="IDatacenters.GetDatacenterWeak"/> at most once per replica.</para>
         /// </summary>
         // (perf): the optional-parameter overload intentionally mirrors SetupBoostLocalDatacentersWeightModifier.
-        // RS0027 is a backcompat guard for adding optional parameters to existing APIs; this method is new.
+        // RS0027 requires the overload with optional parameters to have the most parameters among its overloads;
+        // here it has the same parameter count as the provider overload. The existing methods are grandfathered
+        // in PublicAPI.Shipped.txt, while this new API is unshipped, so the analyzer flags it.
 #pragma warning disable RS0027
         public static void SetupBoostLocalAndAvoidInactiveDatacentersWeightModifier(
             [NotNull] this IWeighedReplicaOrderingBuilder self,

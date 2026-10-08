@@ -22,7 +22,9 @@ namespace Vostok.ClusterClient.Datacenters
         private readonly Func<double> minimumWeightForBoostingProvider;
 
         // (perf): the optional-parameter overload intentionally mirrors BoostLocalDatacentersModifier.
-        // RS0027 is a backcompat guard for adding optional parameters to existing APIs; this type is new.
+        // RS0027 requires the overload with optional parameters to have the most parameters among its overloads;
+        // here it has the same parameter count as the provider overload. The existing modifiers are grandfathered
+        // in PublicAPI.Shipped.txt, while this new API is unshipped, so the analyzer flags it.
 #pragma warning disable RS0027
         public BoostLocalAndAvoidInactiveDatacentersModifier(
             [NotNull] IDatacenters datacenters,
