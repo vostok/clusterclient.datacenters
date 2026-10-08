@@ -1,3 +1,7 @@
+## 0.1.6 (08-10-2026):
+
+Added `BoostLocalAndAvoidInactiveDatacentersModifier` that combines `AvoidInactiveDatacentersModifier` and `BoostLocalDatacentersModifier`, querying `IDatacenters.GetDatacenterWeak` at most once per replica.
+
 ## 0.1.5 (16-12-2024): 
 
 Bump NuGet deps versions

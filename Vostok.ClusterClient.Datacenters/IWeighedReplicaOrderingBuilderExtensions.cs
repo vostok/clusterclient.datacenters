@@ -41,5 +41,35 @@ namespace Vostok.ClusterClient.Datacenters
         {
             self.AddModifier(new BoostLocalDatacentersModifier(datacenters, boostMultiplierProvider, minimumWeightForBoostingProvider));
         }
+
+        /// <summary>
+        /// <para>Adds a <see cref="BoostLocalAndAvoidInactiveDatacentersModifier"/> that combines <see cref="AvoidInactiveDatacentersModifier"/> and <see cref="BoostLocalDatacentersModifier"/>.</para>
+        /// <para>It applies zero weights for non-active datacenters and increases weight of replicas in local datacenter, querying <see cref="IDatacenters.GetDatacenterWeak"/> at most once per replica.</para>
+        /// </summary>
+        // (perf): the optional-parameter overload intentionally mirrors SetupBoostLocalDatacentersWeightModifier.
+        // RS0027 is a backcompat guard for adding optional parameters to existing APIs; this method is new.
+#pragma warning disable RS0027
+        public static void SetupBoostLocalAndAvoidInactiveDatacentersWeightModifier(
+            [NotNull] this IWeighedReplicaOrderingBuilder self,
+            [NotNull] IDatacenters datacenters,
+            double boostMultiplier = Constants.DefaultBoostMultiplier,
+            double minimumWeightForBoosting = Constants.DefaultMinimumWeightForBoosting)
+        {
+            self.AddModifier(new BoostLocalAndAvoidInactiveDatacentersModifier(datacenters, boostMultiplier, minimumWeightForBoosting));
+        }
+#pragma warning restore RS0027
+
+        /// <summary>
+        /// <para>Adds a <see cref="BoostLocalAndAvoidInactiveDatacentersModifier"/> that combines <see cref="AvoidInactiveDatacentersModifier"/> and <see cref="BoostLocalDatacentersModifier"/>.</para>
+        /// <para>It applies zero weights for non-active datacenters and increases weight of replicas in local datacenter, querying <see cref="IDatacenters.GetDatacenterWeak"/> at most once per replica.</para>
+        /// </summary>
+        public static void SetupBoostLocalAndAvoidInactiveDatacentersWeightModifier(
+            [NotNull] this IWeighedReplicaOrderingBuilder self,
+            [NotNull] IDatacenters datacenters,
+            [NotNull] Func<double> boostMultiplierProvider,
+            [NotNull] Func<double> minimumWeightForBoostingProvider)
+        {
+            self.AddModifier(new BoostLocalAndAvoidInactiveDatacentersModifier(datacenters, boostMultiplierProvider, minimumWeightForBoostingProvider));
+        }
     }
 }
